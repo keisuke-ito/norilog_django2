@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block contents %}
+hello
 <form action="{% url 'norilog:signup' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}

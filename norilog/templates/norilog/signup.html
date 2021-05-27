@@ -1,0 +1,13 @@
+{% extends 'norilog/base.html' %}
+
+{% block title %}
+新規登録
+{% endblock %}
+
+{% block contents %}
+<form action="{% url 'norilog:signup' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="保存">
+</form>
+{% endblock %}

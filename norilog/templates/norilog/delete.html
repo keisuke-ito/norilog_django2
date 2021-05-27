@@ -1,0 +1,18 @@
+{% extends 'norilog/base.html' %}
+
+{% block title %}
+削除画面
+{% endblock %}
+
+{% block contents %}
+<form method="post">
+    {% csrf_token %}
+    {{ deleted_data.pk }}
+    {{ deleted_data.start }}
+    {{ deleted_data.finish }}
+    {{ deleted_data.created_at }}
+    {{ deleted_data.memo }}
+    <input type="submit" value="削除">
+</form>
+<p>以上を削除しますか？</p>
+{% endblock %}

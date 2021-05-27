@@ -1,0 +1,25 @@
+{% extends 'norilog/base.html' %}
+
+{% block title %}
+トップ画面
+{% endblock %}
+
+{% block contents %}
+<div class="jumbotron mt4">
+    <h1 class="display-4">乗りログアプリTop</h1>
+    <p class="lead">乗降記録アプリ<br>
+        自分がどこから、どこまで、いつ電車に乗ったのかを記録するWebアプリケーション
+    </p>
+    <hr class="my-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col">
+            <p>アカウントを持っている</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg" role="button">ログイン</a>
+        </div>
+        <div class="col">
+            <p>新しく始める</p>
+            <a href="{% url 'norilog:signup' %}" class="btn btn-primary btn-lg" role="button">新規登録</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

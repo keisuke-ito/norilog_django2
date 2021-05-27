@@ -1,0 +1,20 @@
+{% extends 'norilog/base.html' %}
+
+{% block title %}
+ログイン
+{% endblock %}
+
+{% block contents %}
+<div class="shadow mt-4 card mx-auto text-center" style="width: 400px;">
+    <h4 class="card-header">ログインフォーム画面</h4>
+    <form method="post" class="card-body p-4 my-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary mt-3" type="submit">ログイン</button>
+    </form>
+    <div class="card-footer">
+        <a class="btn btn-primary" href="{% url 'norilog:signup' %}" role="button">新規登録</a>
+        <a class="btn btn-primary" href="{% url 'norilog:guest' %}" role="button">ゲストログイン</a>
+    </div>
+</div>
+{% endblock %}

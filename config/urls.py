@@ -23,4 +23,5 @@ urlpatterns = [
     path('norilog/', include('norilog.urls')),
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
+    path('todo/', include('todo.urls')),
 ]

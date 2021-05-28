@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 INSTALLED_APPS = [
     'norilog.apps.NorilogConfig',
+    'todo.apps.TodoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,0 +1,51 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+Todoホーム
+{% endblock %}
+
+{% block contents %}
+<h1>Todo List</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'todo:create' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td colspan="5">
+                <label for="body">New Todo</label><br>
+                <textarea name="body" id="body"></textarea>
+                <input type="hidden" name="user" value="{{ user.id }}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="mt-1 btn btn-info">Add Todo</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h2 class="my-4">Current Todo</h2>
+<div class="row d-flex justify-content-center">
+    <div class="col-9">
+        <table class="table table-striped todo-table">
+            <thead>
+                <th></th>
+                <th>Todo</th>
+                <th>編集</th>
+                <th>削除</th>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ post.body|linebreaksbr }}</td>
+                    <td><a href="{% url 'todo:update' post.pk %}" role='button' class="btn btn-secondary">編集</a></td>
+                    <td><a href="{% url 'todo:delete' post.pk %}" role="button" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

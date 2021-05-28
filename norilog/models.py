@@ -7,6 +7,10 @@ class CustomUser(AbstractUser):
     pass
 
 class Noriori(models.Model):
+    class Meta:
+        verbose_name = '乗降履歴'
+        verbose_name_plural = '乗降履歴'
+
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     start = models.CharField(max_length=31)
     finish = models.CharField(max_length=31)

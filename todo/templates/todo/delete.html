@@ -1,0 +1,31 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+削除画面
+{% endblock %}
+
+{% block contents %}
+<form method="post">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">ユーザー</th>
+                <th scope="col">Todo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ deleted_data.id }}</td>
+                <td>{{ deleted_data.user }}</td>
+                <td>{{ deleted_data.body|linebreaksbr }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <p>削除しますか？</p>
+        <input class="btn btn-danger" type="submit" value="削除">
+    </div>
+</form>
+{% endblock %}
